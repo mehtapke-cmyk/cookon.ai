@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Outfit', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-display: 'Playfair Display', serif;
+
+    /* Modern Light Theme Refreshed */
+    --background: 0 0% 94%; /* #f0f0f0 */
+    --foreground: 0 0% 10%; /* #1a1a1a */
+    --foreground-muted: 0 0% 35%;
+    
+    --primary: 0 0% 10%;
+    --primary-foreground: 0 0% 97%;
+    
+    --secondary: 0 0% 90%;
+    --secondary-foreground: 0 0% 10%;
+    
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 45%;
+    
+    --accent: 43 65% 45%;
+    --accent-foreground: 0 0% 97%;
+    
+    --destructive: 345 50% 45%;
+    --destructive-foreground: 0 0% 97%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    
+    --border: 0 0% 85%;
+    --input: 0 0% 90%;
+    --ring: 43 65% 45%;
+    
+    --radius: 0.5rem;
+
+    /* Refined Custom App Colors */
+    --accent-gold: 43 70% 42%; /* Darker, refined gold for light background */
+    --accent-purple: 270 43% 30%;
+    --accent-midnight: 210 40% 15%;
+    --accent-cyan: 180 80% 40%;
+    --accent-burgundy: 345 50% 35%;
+    
+    /* Variables specific to mysterious/dark components */
+    --mysterious-bg: 0 0% 6%;
+    --mysterious-gold: 43 100% 55%;
+    --mysterious-cyan: 180 100% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 6%;
+    --foreground: 0 0% 97%;
+    --foreground-muted: 0 0% 70%;
+    --primary: 0 0% 97%;
+    --primary-foreground: 0 0% 6%;
+    --secondary: 270 43% 20%;
+    --secondary-foreground: 0 0% 97%;
+    --muted: 210 25% 10%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 43 100% 55%;
+    --accent-foreground: 0 0% 6%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 180 100% 50%;
+    
+    --accent-gold: 43 100% 55%;
+    --accent-cyan: 180 100% 50%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    line-height: 1.625;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  .text-accent-gold { color: hsl(var(--accent-gold)); }
+  .text-accent-cyan { color: hsl(var(--accent-cyan)); }
+  .bg-accent-gold { background-color: hsl(var(--accent-gold)); }
+  .border-accent-gold { border-color: hsl(var(--accent-gold)); }
+  
+  .glow-cyan {
+    box-shadow: 0 0 20px -5px hsl(var(--accent-cyan) / 0.4);
+  }
+  .glow-cyan:hover {
+    box-shadow: 0 0 30px 0px hsl(var(--accent-cyan) / 0.6);
+  }
+  
+  .glow-gold {
+    box-shadow: 0 0 20px -5px hsl(var(--accent-gold) / 0.3);
+  }
+  .glow-gold:hover {
+    box-shadow: 0 0 30px 0px hsl(var(--accent-gold) / 0.5);
+  }
+
+  /* Specific glowing variants for dark mysterious components */
+  .glow-mysterious-gold {
+    box-shadow: 0 0 20px -5px hsl(var(--mysterious-gold) / 0.4);
+  }
+  .glow-mysterious-gold:hover {
+    box-shadow: 0 0 35px 0px hsl(var(--mysterious-gold) / 0.7);
+  }
+  
+  .glow-mysterious-cyan {
+    box-shadow: 0 0 20px -5px hsl(var(--mysterious-cyan) / 0.4);
+  }
+  .glow-mysterious-cyan:hover {
+    box-shadow: 0 0 35px 0px hsl(var(--mysterious-cyan) / 0.7);
+  }
+
+  .text-glow-gold {
+    text-shadow: 0 0 15px hsl(var(--accent-gold) / 0.4);
+  }
+
+  .glass-dark {
+    background: linear-gradient(135deg, hsl(var(--mysterious-bg) / 0.8) 0%, hsl(var(--accent-midnight) / 0.8) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(0 0% 100% / 0.1);
+  }
+}
