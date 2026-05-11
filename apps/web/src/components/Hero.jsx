@@ -61,7 +61,7 @@ const Hero = () => {
                  <div className="w-1.5 h-1.5 bg-accent-gold" />
               </div>
               <span className="text-xl md:text-2xl font-sans tracking-[0.25em] text-foreground font-medium uppercase">
-                Cookon<span className="text-accent-gold font-bold">.ai</span>
+                Cookonai
               </span>
             </div>
           </div>
