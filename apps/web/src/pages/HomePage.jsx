@@ -15,7 +15,7 @@ const HomePage = () => {
   return (
     <>
       <Helmet>
-        <title>Cookon.ai - Spectacular Culinary Intelligence</title>
+        <title>Cookonai — Votre agent-cuisine et sous-chef personnel</title>
         <meta name="description" content="Transform your restaurant into a spectacular culinary experience with artificial intelligence. Elevating hospitality and gastronomy." />
       </Helmet>
       
