@@ -285,6 +285,8 @@ logger.error = (msg, options) => {
 }
 
 export default defineConfig({
+	root: path.resolve(__dirname),
+	base: './',
 	optimizeDeps: {
 		include: allDeps,
 	},
