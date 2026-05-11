@@ -32,7 +32,7 @@ const Footer = () => {
             className="text-center md:text-left"
           >
             <span className="text-3xl font-display font-bold tracking-widest text-accent-gold text-glow-gold">
-              Cookon.ai
+              Cookonai
             </span>
             <p className="text-foreground-muted/60 mt-2 text-sm tracking-widest uppercase">
               {lang === 'en' ? 'Gastronomy Reimagined' : 'La Gastronomie Réinventée'}
@@ -54,7 +54,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-white/5">
           <p className="text-foreground-muted/50 text-sm tracking-wider">
-            © {new Date().getFullYear()} Cookon.ai. All rights reserved.
+            © {new Date().getFullYear()} Cookonai. All rights reserved.
           </p>
 
           <div className="flex gap-6">
