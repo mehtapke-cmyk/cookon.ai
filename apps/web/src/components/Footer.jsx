@@ -54,7 +54,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-white/5">
           <p className="text-foreground-muted/50 text-sm tracking-wider">
-            © {new Date().getFullYear()} Cookonai. All rights reserved.
+            © {new Date().getFullYear()} Cookonai. {lang === 'en' ? 'All rights reserved.' : 'Tous droits réservés.'}
           </p>
 
           <div className="flex items-center gap-2 mt-4 md:mt-0 flex-wrap justify-center">
