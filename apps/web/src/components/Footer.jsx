@@ -57,6 +57,13 @@ const Footer = () => {
             © {new Date().getFullYear()} Cookonai. All rights reserved.
           </p>
 
+          <div className="flex items-center gap-2 mt-4 md:mt-0 flex-wrap justify-center">
+            <span className="text-foreground-muted/40 text-xs tracking-wider">Propulsé et imaginé par</span>
+            <img src="/mk-logo.png" alt="MK Créations Originales" className="h-7 w-auto object-contain opacity-80" />
+            <span className="text-foreground-muted/40 text-xs tracking-wider">à Argelès-sur-Mer</span>
+            <img src="/drapeau-france.png" alt="France" className="h-5 w-auto object-contain rounded-sm" />
+          </div>
+
           <div className="flex gap-6">
             {links[lang].map((link) => (
               <a 
