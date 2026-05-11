@@ -30,8 +30,23 @@ const Hero = () => {
   return (
     <section id="home" className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-[hsl(var(--background))] pt-20">
       
+      {/* VIDEO FOND CUISINE */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+          style={{ filter: 'grayscale(20%) contrast(1.1)' }}
+        >
+          <source src="https://videos.pexels.com/video-files/3195394/3195394-hd_1920_1080_25fps.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+      </div>
+
       {/* Light Background & Faint Subtle Tech Elements */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 z-0 pointer-events-none" style={{mixBlendMode:'overlay'}}>
         {/* Subtle dot grid pattern */}
         <div 
           className="absolute inset-0 opacity-[0.15]" 
