@@ -9,15 +9,15 @@ const ChooseYourPath = () => {
 
   const content = {
     fr: {
-      homeTitle: "Je veux Cookon.ai chez moi",
-      homeDesc: "Pour les chefs à domicile et les passionnés de cuisine",
-      restTitle: "Je veux Cookon.ai dans mon établissement",
+      homeTitle: "Je suis particulier — accédez à Cookonai",
+      homeDesc: "Découvrez votre assistant culinaire personnel sur cookonai.com",
+      restTitle: "Je veux Cookonai dans mon établissement",
       restDesc: "Pour les restaurants professionnels et les hôtels",
     },
     en: {
-      homeTitle: "I want Cookon.ai at home",
-      homeDesc: "For home chefs and cooking enthusiasts",
-      restTitle: "I want Cookon.ai in my restaurant",
+      homeTitle: "I'm an individual — access Cookonai",
+      homeDesc: "Discover your personal culinary assistant on cookonai.com",
+      restTitle: "I want Cookonai in my restaurant",
       restDesc: "For professional restaurants and hotels",
     }
   };
@@ -30,12 +30,15 @@ const ChooseYourPath = () => {
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           
           {/* Home Option */}
-          <motion.button 
+          <motion.a
+            href="https://cookonai.com"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="group text-left h-full"
+            className="group text-left h-full block"
           >
             <div className="glass-dark h-full p-10 rounded-2xl border border-white/10 hover:border-[hsl(var(--mysterious-cyan))]/50 transition-all duration-500 glow-mysterious-cyan flex flex-col items-start relative overflow-hidden">
               {/* Background Accent */}
@@ -58,7 +61,7 @@ const ChooseYourPath = () => {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500" />
               </div>
             </div>
-          </motion.button>
+          </motion.a>
 
           {/* Restaurant Option */}
           <motion.button 
