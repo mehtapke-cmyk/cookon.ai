@@ -57,11 +57,12 @@ const Footer = () => {
             © {new Date().getFullYear()} Cookonai. {lang === 'en' ? 'All rights reserved.' : 'Tous droits réservés.'}
           </p>
 
-          <div className="flex items-center gap-2 mt-4 md:mt-0 flex-wrap justify-center">
-            <span className="text-foreground-muted/40 text-xs tracking-wider">Propulsé et imaginé par</span>
-            <img src="/mk-logo.png" alt="MK Créations Originales" className="h-7 w-auto object-contain opacity-80" />
-            <span className="text-foreground-muted/40 text-xs tracking-wider">à Argelès-sur-Mer</span>
-            <img src="/drapeau-france.png" alt="France" className="h-5 w-auto object-contain rounded-sm" />
+          <div className="flex items-center gap-3 mt-4 md:mt-0 flex-wrap justify-center">
+            <span className="text-foreground-muted/60 text-sm tracking-wider">Propulsé par</span>
+            <img src="/mk-logo.png" alt="MK" className="h-10 w-auto object-contain" style={{filter:'drop-shadow(0 0 12px rgba(255,255,255,0.15))'}} />
+            <span className="text-foreground-muted/60 text-sm tracking-wider italic font-display" style={{backgroundImage:'linear-gradient(90deg,#8b5cf6 0%,#06b6d4 50%,#f97316 100%)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>Création Originale by Mehtap Keles</span>
+            <span className="text-foreground-muted/60 text-sm tracking-wider">à Argelès-sur-Mer</span>
+            <img src="/drapeau-fr-brush.png" alt="France" className="h-6 w-auto object-contain" />
           </div>
 
           <div className="flex gap-6">
