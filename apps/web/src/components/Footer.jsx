@@ -57,12 +57,18 @@ const Footer = () => {
             © {new Date().getFullYear()} Cookonai. {lang === 'en' ? 'All rights reserved.' : 'Tous droits réservés.'}
           </p>
 
-          <div className="flex items-center gap-3 mt-4 md:mt-0 flex-wrap justify-center">
-            <span className="text-foreground-muted/60 text-sm tracking-wider">Propulsé par</span>
-            <img src="/mk-logo.png" alt="MK" className="h-10 w-auto object-contain" style={{filter:'drop-shadow(0 0 12px rgba(255,255,255,0.15))'}} />
-            <span className="text-foreground-muted/60 text-sm tracking-wider italic font-display" style={{backgroundImage:'linear-gradient(90deg,#8b5cf6 0%,#06b6d4 50%,#f97316 100%)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>Création Originale by Mehtap Keles</span>
-            <span className="text-foreground-muted/60 text-sm tracking-wider">à Argelès-sur-Mer</span>
-            <img src="/drapeau-fr-brush.png" alt="France" className="h-6 w-auto object-contain" />
+          <div className="flex flex-col items-center gap-4 mt-4 md:mt-0">
+            <div className="flex items-center gap-3">
+              <span className="text-foreground-muted/60 text-sm tracking-wider">Propulsé par</span>
+              <a href="https://mkcreations.fr" target="_blank" rel="noopener noreferrer" aria-label="MK Créations Originales">
+                <img src="/mk-logo.png" alt="MK Créations Originales" className="h-10 w-auto object-contain" style={{filter:'drop-shadow(0 0 12px rgba(255,255,255,0.15))'}} />
+              </a>
+            </div>
+            <div className="relative isolate text-center px-4 py-3" style={{minWidth:'260px'}}>
+              <div className="absolute inset-0 -z-10 mx-auto" style={{backgroundImage:'url(/drapeau-fr-brush.png)',backgroundSize:'contain',backgroundPosition:'center',backgroundRepeat:'no-repeat',opacity:0.42,maxWidth:'320px',margin:'0 auto'}} />
+              <span className="block text-[11px] uppercase tracking-[0.32em] text-foreground-muted/60 mb-1">Conçu en France</span>
+              <p className="font-display italic text-2xl text-white m-0">Argelès-sur-Mer</p>
+            </div>
           </div>
 
           <div className="flex gap-6">
