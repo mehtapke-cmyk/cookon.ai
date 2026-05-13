@@ -9,11 +9,11 @@ const WhoAreWe = () => {
   const content = {
     fr: {
       title: "Qui Sommes-Nous ?",
-      text: "Cook on AI révolutionne l'industrie hôtelière et gastronomique. Nous combinons l'intelligence artificielle avec l'art culinaire pour créer des expériences inoubliables. Destiné aux hôtels, chaînes hôtelières et restaurants, notre système opérationnel améliore la qualité culinaire, optimise les services et crée le spectacle qui captive vos clients."
+      text: "Cookonai révolutionne l'industrie hôtelière et gastronomique. Nous combinons l'intelligence artificielle avec l'art culinaire pour créer des expériences inoubliables. Destiné aux hôtels, chaînes hôtelières et restaurants, notre système opérationnel améliore la qualité culinaire, optimise les services et crée le spectacle qui captive vos clients."
     },
     en: {
       title: "Who Are We?",
-      text: "Cook on AI revolutionizes the hospitality and gastronomic industry. We combine artificial intelligence with culinary art to create unforgettable experiences. Designed for hotels, hotel chains, and restaurants, our operational system improves culinary quality, optimizes services, and creates the spectacle that captivates your guests."
+      text: "Cookonai revolutionizes the hospitality and gastronomic industry. We combine artificial intelligence with culinary art to create unforgettable experiences. Designed for hotels, hotel chains, and restaurants, our operational system improves culinary quality, optimizes services, and creates the spectacle that captivates your guests."
     }
   };
 

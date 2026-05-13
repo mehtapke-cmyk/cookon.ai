@@ -9,8 +9,8 @@ const slides = [
     title: { fr: 'Introduction', en: 'Introduction' },
     image: 'https://images.unsplash.com/photo-1518645666305-5f5e7469e52a',
     text: {
-      fr: "Cook on AI vous invite à une expérience culinaire immersive, où chaque plat raconte une histoire et éveille vos sens. Découvrez une cuisine pensée pour séduire les palais les plus exigeants. Bienvenue dans l'univers de Cookon.ai.",
-      en: "Cook on AI invites you to an immersive culinary experience, where every dish tells a story and awakens your senses. Discover cuisine designed to seduce the most discerning palates. Welcome to the Cookon.ai universe."
+      fr: "Cookonai vous invite à une expérience culinaire immersive, où chaque plat raconte une histoire et éveille vos sens. Découvrez une cuisine pensée pour séduire les palais les plus exigeants. Bienvenue dans l'univers Cookonai.",
+      en: "Cookonai invites you to an immersive culinary experience, where every dish tells a story and awakens your senses. Discover cuisine designed to seduce the most discerning palates. Welcome to the Cookonai universe."
     }
   },
   {

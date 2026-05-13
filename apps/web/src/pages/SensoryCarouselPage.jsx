@@ -9,8 +9,8 @@ const SensoryCarouselPage = () => {
   return (
     <>
       <Helmet>
-        <title>Immersive Experience | Cookon.ai</title>
-        <meta name="description" content="Discover the sensory universe of Cookon.ai. An immersive culinary experience awakening sight, smell, taste, touch, and sound." />
+        <title>Immersive Experience | Cookonai</title>
+        <meta name="description" content="Discover the sensory universe of Cookonai. An immersive culinary experience awakening sight, smell, taste, touch, and sound." />
       </Helmet>
       
       <div className="relative min-h-screen bg-black">
