@@ -1,197 +1,123 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-
+import { Menu, X, Globe } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const {
+    lang,
+    toggleLang
+  } = useLanguage();
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const navItems = [
-    { label: 'Pourquoi Cook On AI', id: 'pourquoi-cook-on-ai' },
-    { label: 'À propos', id: 'a-propos' },
-    { label: 'Contact', id: 'contact' },
-  ];
-
+  const navItems = [{
+    fr: 'QUI SOMMES-NOUS',
+    en: 'WHO ARE WE',
+    id: 'about'
+  }, {
+    fr: 'PHILOSOPHIE',
+    en: 'PHILOSOPHY',
+    id: 'philosophy'
+  }, {
+    fr: 'SERVICES',
+    en: 'SERVICES',
+    id: 'features'
+  }, {
+    fr: 'CONTACT',
+    en: 'CONTACT',
+    id: 'contact'
+  }];
   const scrollToSection = (e, sectionId) => {
     e.preventDefault();
     const section = document.getElementById(sectionId);
-    if (section) window.scrollTo({ top: section.offsetTop - 80, behavior: 'smooth' });
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
     setIsMobileMenuOpen(false);
   };
+  return <>
+      <motion.header initial={{
+      y: -100
+    }} animate={{
+      y: 0
+    }} transition={{
+      duration: 0.8,
+      ease: "easeOut"
+    }} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-black/90 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.8)] border-b border-white/5' : 'bg-gradient-to-b from-black/80 to-transparent'}`}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between h-24">
+            <motion.a href="#" onClick={e => scrollToSection(e, 'home')} whileHover={{
+            scale: 1.05
+          }} className="text-3xl font-display font-bold tracking-wider text-accent-gold text-glow-gold cursor-pointer">
+              Cookonai
+            </motion.a>
 
-  return (
-    <>
-      <motion.header
-        initial={{ y: -90 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.65, ease: 'easeOut' }}
-        style={{
-          position: 'fixed',
-          top: 0, left: 0, right: 0,
-          zIndex: 50,
-          transition: 'all 300ms',
-          backdropFilter: 'blur(14px)',
-          WebkitBackdropFilter: 'blur(14px)',
-          background: isScrolled ? 'rgba(255,247,239,.95)' : 'linear-gradient(to bottom, rgba(0,0,0,.55), transparent)',
-          borderBottom: isScrolled ? '1px solid rgba(62,37,19,.1)' : '1px solid rgba(255,255,255,.08)',
-          boxShadow: isScrolled ? '0 8px 32px rgba(97,60,33,.1)' : 'none',
-          fontFamily: "'Manrope', Arial, sans-serif",
-        }}
-      >
-        <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 1.25rem' }}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            height: '80px',
-          }}>
-            {/* Logo */}
-            <a
-              href="#"
-              onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              style={{ display: 'inline-flex', alignItems: 'center' }}
-            >
-              <img
-                src="/assets/cookonai-logo.png"
-                alt="Cookon.ai"
-                style={{
-                  height: '70px',
-                  width: 'auto',
-                  objectFit: 'contain',
-                  filter: isScrolled ? 'none' : 'brightness(0) invert(1)',
-                }}
-              />
-            </a>
+            <nav className="hidden md:flex items-center gap-10">
+              {navItems.map((item, index) => <motion.a key={item.id} href={`#${item.id}`} onClick={e => scrollToSection(e, item.id)} initial={{
+              opacity: 0,
+              y: -20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              delay: index * 0.1
+            }} className="text-sm font-sans tracking-[0.15em] text-foreground-muted transition-all duration-300 hover:text-accent-cyan relative group cursor-pointer">
+                  {item[lang]}
+                  <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-[hsl(var(--accent-cyan))] transition-all duration-300 group-hover:w-full shadow-[0_0_8px_hsl(var(--accent-cyan))]" />
+                </motion.a>)}
 
-            {/* Navigation desktop */}
-            <nav style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}
-              className="hidden lg:flex">
-              {navItems.map(item => (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  onClick={e => scrollToSection(e, item.id)}
-                  style={{
-                    fontSize: '.8rem',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '.14em',
-                    color: isScrolled ? '#7d5c47' : 'rgba(255,255,255,.82)',
-                    transition: 'color 200ms',
-                    textDecoration: 'none',
-                  }}
-                  onMouseEnter={e => e.target.style.color = isScrolled ? '#352114' : '#fff'}
-                  onMouseLeave={e => e.target.style.color = isScrolled ? '#7d5c47' : 'rgba(255,255,255,.82)'}
-                >
-                  {item.label}
-                </a>
-              ))}
-              <a
-                href="#contact"
-                onClick={e => scrollToSection(e, 'contact')}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '.4rem',
-                  background: '#ff6b35',
-                  color: '#fff',
-                  borderRadius: '999px',
-                  padding: '.7rem 1.4rem',
-                  fontSize: '.8rem',
-                  fontWeight: 800,
-                  textTransform: 'uppercase',
-                  letterSpacing: '.12em',
-                  textDecoration: 'none',
-                  transition: 'all 200ms',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = '#e45725'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = '#ff6b35'; e.currentTarget.style.transform = 'none'; }}
-              >
-                Démo →
-              </a>
+              {/* Language Toggle */}
+              <button onClick={toggleLang} className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 hover:border-accent-gold transition-all duration-300 text-foreground-muted hover:text-accent-gold group" aria-label="Toggle Language">
+                <Globe className="w-4 h-4 group-hover:animate-pulse" />
+                <span className="text-xs font-bold tracking-widest uppercase">
+                  {lang === 'en' ? 'FR' : 'EN'}
+                </span>
+              </button>
             </nav>
 
-            {/* Bouton mobile */}
-            <button
-              onClick={() => setIsMobileMenuOpen(o => !o)}
-              className="lg:hidden"
-              style={{
-                width: '44px', height: '44px',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                border: `1px solid ${isScrolled ? 'rgba(62,37,19,.2)' : 'rgba(255,255,255,.2)'}`,
-                borderRadius: '50%',
-                background: 'transparent',
-                color: isScrolled ? '#352114' : '#fff',
-                cursor: 'pointer',
-              }}
-              aria-label="Menu"
-            >
-              {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden p-2 z-10 text-accent-gold" aria-label="Toggle mobile menu">
+              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
       </motion.header>
 
-      {/* Menu mobile */}
       <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            style={{
-              position: 'fixed', inset: 0, zIndex: 40,
-              background: '#1a1009',
-              padding: '7rem 1.5rem 2rem',
-              fontFamily: "'Manrope', Arial, sans-serif",
-              color: '#fff',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1.5rem',
-            }}
-          >
-            {navItems.map(item => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={e => scrollToSection(e, item.id)}
-                style={{
-                  fontFamily: "'Fraunces', Georgia, serif",
-                  fontSize: '2rem',
-                  color: '#fff',
-                  textDecoration: 'none',
-                  borderBottom: '1px solid rgba(255,255,255,.1)',
-                  paddingBottom: '1.25rem',
-                  display: 'block',
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={e => scrollToSection(e, 'contact')}
-              style={{
-                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                background: '#ff6b35', color: '#fff',
-                borderRadius: '999px', padding: '.9rem 2rem',
-                fontWeight: 800, textTransform: 'uppercase', letterSpacing: '.12em',
-                fontSize: '.875rem', textDecoration: 'none', marginTop: '1rem',
-              }}
-            >
-              Demander une démo
-            </a>
-          </motion.div>
-        )}
+        {isMobileMenuOpen && <motion.div initial={{
+        opacity: 0
+      }} animate={{
+        opacity: 1
+      }} exit={{
+        opacity: 0
+      }} className="md:hidden fixed inset-0 bg-black/95 backdrop-blur-xl z-40 pt-32 px-6">
+            <nav className="flex flex-col items-center justify-start h-full space-y-10">
+              {navItems.map(item => <motion.a key={item.id} href={`#${item.id}`} onClick={e => scrollToSection(e, item.id)} initial={{
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} className="text-2xl font-display tracking-widest text-foreground hover:text-accent-cyan transition-colors">
+                  {item[lang]}
+                </motion.a>)}
+              <button onClick={toggleLang} className="flex items-center gap-2 mt-8 px-6 py-3 rounded-full border border-accent-gold text-accent-gold">
+                <Globe className="w-5 h-5" />
+                <span className="text-sm font-bold tracking-widest uppercase">
+                  {lang === 'en' ? 'Passer en Français' : 'Switch to English'}
+                </span>
+              </button>
+            </nav>
+          </motion.div>}
       </AnimatePresence>
-    </>
-  );
+    </>;
 };
-
 export default Header;
